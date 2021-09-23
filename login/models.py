@@ -46,14 +46,6 @@ class UserManager(models.Manager):
     def comparar_password(self,password, password2):
         if password != password2:
             return "Password no son iguales"
-
-    def recuperar_password(self, postData):
-        errores = {}
-        if len(User.objects.filter(email=postData['email'])) > 0:
-            pass
-        else:
-            errores['email'] = "Email no existe"
-        return errores
         
 
 class User(models.Model):
