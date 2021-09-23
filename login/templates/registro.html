@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h3>Bienvenido!!</h3>
+        </div>
+        <br>
+        <div class="card-deck">
+            <div class="card border-primary mb-3" style="max-width: 180rem;">
+                <div class="card-header">Usuario</div>
+                <div class="card-body">
+                    {% if messages %} 
+                        {% for message in messages %}
+                            <div class="container-fluid p-0">
+                                <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                                    {{message}}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                </div>
+                            </div>
+                        {% endfor %} 
+                    {% endif %}
+
+                    <form action="registro" method="POST">
+                        {% csrf_token %}
+                        <input hidden name="rol" id="rol" value="1">
+                        <fieldset>
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" class="form-control" name="nombre" id="nombre">
+                        </fieldset>
+                        <fieldset>
+                            <label for="apellido">Alias:</label>
+                            <input type="text" class="form-control" name="alias" id="alias">
+                        </fieldset>
+                        <fieldset>
+                            <label for="email">Email:</label>
+                            <input type="text" class="form-control" name="email" id="email">
+                        </fieldset>
+                        <fieldset>
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" id="password">
+                        </fieldset>
+                        <fieldset>
+                            <label for="password2">Confirmar Password:</label>
+                            <input type="password" class="form-control" name="password2" id="password2">
+                        </fieldset>
+                        <!--<fieldset>
+                            <label for="cumple">Cumpleaños:</label>
+                            <input type="date" class="form-control" name="cumple">
+                        </fieldset>-->
+                        <br>
+                        <button class="btn">Registro</button>
+                    </form>
+                </div>
+            </div>
+            <div class="card border-primary mb-3" style="max-width: 180rem;">
+                <div class="card-header">Login</div>
+                <div class="card-body">
+                    <form action="login" method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+                            <label for="email2">Email:</label>
+                            <input type="text" name="email2" id="email2">
+                        </fieldset>
+                        <!--<fieldset>
+                            <label for="perro">Perro:</label>
+                            <input type="text" name="perro" id="perro">
+                        </fieldset>-->
+                        <fieldset>
+                            <label for="password3">Password:</label>
+                            <input type="password" name="password" id="password3">
+                        </fieldset>
+                        <button class="btn">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

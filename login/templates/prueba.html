@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+</head>
+<body>
+    <h1>{{gato.email2}}</h1>
+    <h1>{{gato.password}}</h1>
+    <h1>{{avion}}</h1>
+
+{% for poke in lista_pokes%}
+    <ul>
+        <li>{{poke.id}}</li>
+        <li>{{poke.email}}</li>
+        <li>{{poke.perro}}</li>
+        <li>{{poke.password}}</li>
+    </ul>
+{% endfor %}
+</body>
+</html>
