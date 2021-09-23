@@ -96,6 +96,7 @@ def cambiar_pass(request):
         pass_confirm = request.POST['pass_confirmacion']
 
         mensaje = User.objects.comparar_password(pass_nueva,pass_confirm)
+        print(mensaje)
         if len(mensaje) > 0:
             messages.error(request, mensaje)
             return redirect('/')
@@ -104,10 +105,5 @@ def cambiar_pass(request):
 
         reg_user[0].password = password_encriptado
         reg_user[0].save()
-        msg="Contraseña cambiada exitosamente!"
-        messages.success(request, msg)
-        
-    context = {
-        "active_user": reg_user,
-    }
-    return render(request, 'recuperar.html', context)
+        request.session.flush()
+        return redirect('/')

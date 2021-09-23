@@ -46,7 +46,9 @@ class UserManager(models.Manager):
     def comparar_password(self,password, password2):
         if password != password2:
             return "Password no son iguales"
-        
+        else:
+            return ""
+
 
 class User(models.Model):
     id = models.AutoField(primary_key=True)
