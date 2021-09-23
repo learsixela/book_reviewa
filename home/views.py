@@ -70,18 +70,6 @@ def recuperar(request):
     }
     return render(request, 'recuperar.html', context)
 
-def cambiar_pass(request):
-    reg_user = User.objects.get(id=request.session['user_id'])
-
-    pass_actual = request.POST['pass_actual']
-    pass_nueva = request.POST['pass_nueva']
-    pass_confirm = request.POST['pass_confirmacion']
-
-    context = {
-        "active_user": reg_user,
-    }
-    return render(request, 'recuperar.html', context)
-
 
 def edit(request, libro_id):
     context = {

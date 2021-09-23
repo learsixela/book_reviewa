@@ -17,15 +17,16 @@
         </div>
         <br>
         <div class="container">
-            <form method="post" action="cambiar_pass">
+            <form method="post" action="/cambiar_pass">
+                {% csrf_token %}
                 <label for="">Ingrese contraseña actual:</label>
-                <input type="password" class="form-control" name="pass_actual">
+                <input type="password" class="form-control" name="pass_actual" value="123456">
                 <br>
                 <label for="">Ingrese su nueva contraseña:</label>
-                <input type="password" class="form-control" name="pass_nueva">
+                <input type="password" class="form-control" name="pass_nueva" value="qwerty">
                 <br>
                 <label for="">Repita su nueva contraseña:</label>
-                <input type="password" class="form-control" name="pass_confirmacion">
+                <input type="password" class="form-control" name="pass_confirmacion" value="qwerty">
                 <br>
                 <button type="submit" class="btn btn-primary">Cambiar</button>
             </form>
