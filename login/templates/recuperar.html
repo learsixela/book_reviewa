@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="container">
         {% include "navbar.html" %}
         <div class="header">
             <h5>Bienvenido: {{active_user.nombre}} </h5>
@@ -20,13 +20,13 @@
             <form method="post" action="/cambiar_pass">
                 {% csrf_token %}
                 <label for="">Ingrese contraseña actual:</label>
-                <input type="password" class="form-control" name="pass_actual" value="qwerty">
+                <input type="password" class="form-control" name="pass_actual">
                 <br>
                 <label for="">Ingrese su nueva contraseña:</label>
-                <input type="password" class="form-control" name="pass_nueva" value="123456">
+                <input type="password" class="form-control" name="pass_nueva">
                 <br>
                 <label for="">Repita su nueva contraseña:</label>
-                <input type="password" class="form-control" name="pass_confirmacion" value="123456">
+                <input type="password" class="form-control" name="pass_confirmacion">
                 <br>
                 <button type="submit" class="btn btn-primary">Cambiar</button>
             </form>

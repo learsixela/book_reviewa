@@ -4,21 +4,22 @@
 <head>
     {% load static %}
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-        crossorigin="anonymous">
-    <title>User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Read::</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b220f12e97.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="container">
         {% include "navbar.html" %}
+        <br>
         <div class="row">
             <div class="col">
-                <h3>User alias: {{user.alias}}</h3>
-                <h3>Name: {{user.nombre}}</h3>
-                <h3>Email: {{user.email}}</h3>
-                <h3>Total Reviews {{rev_count}}</h3>
+                <h3>User alias: </h3>{{user.alias}}
+                <h3>Name: </h3>{{user.nombre}}
+                <h3>Email: </h3>{{user.email}}
+                <h3>Total Reviews: </h3>{{rev_count}}
                 <br><br>
                 <h3>Posted reviews on the followins books: </h3>
 

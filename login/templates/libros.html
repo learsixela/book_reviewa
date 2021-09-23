@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="container">
         {% include "navbar.html" %}
         <div class="header">
 
@@ -37,7 +37,7 @@
                     <div class="h-25 w-100 border border-ligth py-2 px-2 bg-light text-dark overflow-auto ">
                         <!--ciclo for-->
                         {% for lista in lista_libros2 %}
-                        <a href=" ">
+                        <a href="/libros/{{lista.id}} ">
                             <p><ins>{{lista.titulo}}</ins></p>
                         </a>
                         {% endfor %}
