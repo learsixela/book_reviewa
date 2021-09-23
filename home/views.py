@@ -46,6 +46,7 @@ def insertar(request):
     else:
         if int(request.POST['sautor']) != 0:
         # Si es distinto de 0, viene el autor y tendremos que ir a buscarlo
+        
             autor = Autor.objects.get(id=request.POST['sautor'])    
         elif len(request.POST['autor']) != 0:
             autores = Autor.objects.all()
