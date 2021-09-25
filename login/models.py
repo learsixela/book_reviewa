@@ -82,4 +82,4 @@ class Review(models.Model):
     libro = models.ForeignKey(Libro, on_delete=CASCADE, related_name="librox")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    rating = models.IntegerField(default=0)
+    rating = models.IntegerField(default=1)

@@ -6,6 +6,16 @@
     <title>Registro</title>
     {% load static %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="  crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function (){
+            setTimeout(
+                function (){
+                    $('.alert').hide();
+                },3000
+            );
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -14,22 +24,21 @@
         </div>
         <br>
         <div class="card-deck">
-            <div class="card border-primary mb-3" style="max-width: 180rem;">
-                <div class="card-header">Usuario</div>
-                <div class="card-body">
-                    {% if messages %} 
+                    {% if messages %}
                         {% for message in messages %}
                             <div class="container-fluid p-0">
                                 <div class="alert {{ message.tags }} alert-dismissible" role="alert">
                                     {{message}}
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
-                                        </button>
+                                    </button>
                                 </div>
                             </div>
-                        {% endfor %} 
+                        {% endfor %}
                     {% endif %}
-
+            <div class="card border-primary mb-3" style="max-width: 180rem;">
+                <div class="card-header">Usuario</div>
+                <div class="card-body">
                     <form action="registro" method="POST">
                         {% csrf_token %}
                         <input hidden name="rol" id="rol" value="1">
@@ -71,10 +80,6 @@
                             <label for="email2">Email:</label>
                             <input type="text" name="email2" id="email2">
                         </fieldset>
-                        <!--<fieldset>
-                            <label for="perro">Perro:</label>
-                            <input type="text" name="perro" id="perro">
-                        </fieldset>-->
                         <fieldset>
                             <label for="password3">Password:</label>
                             <input type="password" name="password" id="password3">
@@ -85,5 +90,9 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
 </body>
+
 </html>

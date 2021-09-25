@@ -80,10 +80,14 @@ def edit(request, libro_id):
 
 
 def add_review(request):
-    review = Review.objects.create(
-        usuario = User.objects.get(id=request.session['user_id']),
-        contenido = request.POST['review'],
-        libro = Libro.objects.get(id = request.POST['libro_id']),
-        rating = request.POST['rating']
-    )
+
+    if len(request.POST['review']) > 0:
+        Review.objects.create(
+            usuario = User.objects.get(id=request.session['user_id']),
+            contenido = request.POST['review'],
+            libro = Libro.objects.get(id = request.POST['libro_id']),
+            rating = request.POST['rating']
+        )
+    else:
+        messages.warning(request, "Por favor ingrese un review")
     return redirect(f"/libros/{request.POST['libro_id']}")

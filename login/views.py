@@ -91,16 +91,19 @@ def cambiar_pass(request):
     if len(errores) > 0:
         for key, msg in errores.items():
             messages.error(request, msg)
-        return redirect('/')
+        return render(request, 'recuperar.html')
     else:
         pass_nueva = request.POST['pass_nueva']
         pass_confirm = request.POST['pass_confirmacion']
+        if len(pass_nueva) < 6:
+            messages.error(request, "nuevo password debe ser mayor o igual a 6 caracteres", extra_tags='pass_nueva')
+            return render(request, 'recuperar.html')
 
         mensaje = User.objects.comparar_password(pass_nueva,pass_confirm)
         print(mensaje)
         if len(mensaje) > 0:
             messages.error(request, mensaje)
-            return redirect('/')
+            return render(request, 'recuperar.html')
         
         password_encriptado = User.objects.encriptar(pass_nueva)
 
